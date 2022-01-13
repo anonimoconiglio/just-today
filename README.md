@@ -1,7 +1,7 @@
 # Just-Today
 
 A simple helper to get the numeric value of the actual day, month or year.  
-Disclaimer: this package has been done for learning purposes.
+**Disclaimer**: this package has been done for learning purposes.
 
 ## How to use it
 
