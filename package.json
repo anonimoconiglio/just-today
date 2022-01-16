@@ -1,10 +1,14 @@
 {
   "name": "just-today",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple helper to get actual day, month or year. This is a package I've done for learning purposes.",
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anonimoconiglio/just-today"
   },
   "keywords": [ "date", "time", "format" ],
   "author": "Santiago Greco <fsgreco@hey.com> (https://www.anonimoconiglio.com/)",
