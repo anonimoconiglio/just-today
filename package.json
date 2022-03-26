@@ -1,6 +1,6 @@
 {
   "name": "just-today",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple helper to get actual day, month or year. This is a package I've done for learning purposes.",
   "main": "index.mjs",
   "scripts": {

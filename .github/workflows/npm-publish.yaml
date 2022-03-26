@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish on npm
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+  
+  notify:
+    needs: publish 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify me on Telegram
+        run: curl --data-urlencode "chat_id=${{ secrets.CHAT_ID }}" --data-urlencode "text=Launched `npm publish` for *just-today* package" ${{ secrets.API_TELEGRAM_URL }}
