@@ -20,4 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify me on Telegram
-        run: curl -s --data-urlencode "text=Launched _npm-publish_ action for *just-today* package" ${{ secrets.API_TELEGRAM_URL }}
+        run: curl -s --data-urlencode "chat_id=${CHAT_ID}" --data-urlencode "text=Launched _npm-publish_ action for *just-today* package" ${{ secrets.API_TELEGRAM_URL }} > /dev/null
