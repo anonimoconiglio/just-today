@@ -10,21 +10,17 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v1
+        
       - name: Publish on npm
         id: publish-npm
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+        
       - name: Notify new version
         if: steps.publish-npm.outputs.type != 'none'
-        run: curl -s \
-          -d "chat_id=${{ secrets.CHAT_ID }}" \
-          -d "text=📦 *just-today*:%0A✔️ new version ${{ steps.publish-npm.outputs.version }}" \
-          ${{ secrets.API_TELEGRAM_URL }} > /dev/null
+        run: curl -s -d "chat_id=${{ secrets.CHAT_ID }}" -d "text=📦 *just-today*:%0A✔️ new version ${{ steps.publish-npm.outputs.version }}" ${{ secrets.API_TELEGRAM_URL }} > /dev/null
           
       - name: Notify no changes have been found
         if: steps.publish-npm.outputs.type == 'none'
-        run: curl -s \
-          -d "chat_id=${{ secrets.CHAT_ID }}" \
-          -d "text=📦 *just-today*:%0ANessuna nuova versione." \
-          ${{ secrets.API_TELEGRAM_URL }} > /dev/null
+        run: curl -s -d "chat_id=${{ secrets.CHAT_ID }}" -d "text=📦 *just-today*:%0ANessuna nuova versione." ${{ secrets.API_TELEGRAM_URL }} > /dev/null
